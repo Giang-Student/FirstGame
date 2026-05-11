@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HealthItem : Item
+{
+    private int healAmount;
+    public HealthItem(string itemName, int healAmount) : base(itemName)
+    {
+        this.healAmount = healAmount;
+    }
+    public void setHealAmount(int healAmount)
+    {
+        this.healAmount = healAmount;
+    }
+    public int getHealAmount()
+    {
+        return healAmount;
+    }
+    public override void use(Player player)
+    {
+        
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
