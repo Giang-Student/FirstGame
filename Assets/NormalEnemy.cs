@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class NormalEnemy : Enemy
 {
-    private float patroDistance;
-    public NormalEnemy(int health, float moveSpeed, Weapon currenWeapon,bool isDead
-     , int damage, float detactionRange, float attackRange,
+    private float patroDistance; //khoảng cách tuần tra
+    public NormalEnemy(int health, float moveSpeed, bool isDead
+     , int damage,
      float patroDistance) 
-     : base(health, moveSpeed, currenWeapon, isDead, damage, detactionRange, attackRange)
+     : base(health, moveSpeed, isDead, damage)
     {
         this.patroDistance = patroDistance;
     }
@@ -21,33 +21,6 @@ public class NormalEnemy : Enemy
         return patroDistance;
     }
     public void patrol ()
-    {
-        
-    }
-    public override void detectPlayer()
-    {
-        
-    }
-    public override void chasePlayer()
-    {
-        
-    }
-    public override void move()
-    {
-        
-    }
-    public override void attack()
-     {
-        
-     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }

@@ -6,14 +6,11 @@ public abstract class Character : MonoBehaviour
 {
     private int health;
     private float moveSpeed;
-    private Weapon currenWeapon;
     private bool isDead;
-    public Character (int health, float moveSpeed,
-     Weapon currenWeapon, bool isDead)
+    public Character (int health, float moveSpeed, bool isDead)
     {
         this.health = health;
         this.moveSpeed = moveSpeed;
-        this.currenWeapon = currenWeapon;
         this.isDead = isDead;
     }
     public void setHealth(int health)
@@ -23,10 +20,6 @@ public abstract class Character : MonoBehaviour
     public void setMoveSpeed(float moveSpeed)
     {
         this.moveSpeed = moveSpeed;
-    }
-    public void setCurrenWeapon(Weapon currenWeapon)
-    {
-        this.currenWeapon = currenWeapon;
     }
     public void setIsDead(bool isDead)
     {
@@ -40,10 +33,6 @@ public abstract class Character : MonoBehaviour
     {
         return moveSpeed;
     }
-    public Weapon getCurrentWeapon()
-    {
-        return currenWeapon;
-    }
     public bool getIsDead()
     {
         return isDead;
@@ -53,19 +42,6 @@ public abstract class Character : MonoBehaviour
         
     }
     public void die()
-    {
-        
-    }
-    public abstract void move();
-    public abstract void attack();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }

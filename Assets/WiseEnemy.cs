@@ -6,10 +6,10 @@ public class WiseEnemy : Enemy
 {
     private float jumpForce;
     private float skillCoolDown;
-    public WiseEnemy(int health, float moveSpeed, Weapon currenWeapon,bool isDead
-     , int damage, float detactionRange, float attackRange,
+    public WiseEnemy(int health, float moveSpeed,bool isDead
+     , int damage,
      float jumpForce, float skillCoolDown) 
-     : base(health, moveSpeed, currenWeapon, isDead, damage, detactionRange, attackRange)
+     : base(health, moveSpeed, isDead, damage)
     {
         this.jumpForce = jumpForce;
         this.skillCoolDown = skillCoolDown;
@@ -39,33 +39,6 @@ public class WiseEnemy : Enemy
         
     }
     public void specialAttack()
-    {
-        
-    }
-    public override void detectPlayer()
-    {
-        
-    }
-    public override void chasePlayer()
-    {
-        
-    }
-    public override void move()
-    {
-        
-    }
-    public override void attack()
-    {
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
