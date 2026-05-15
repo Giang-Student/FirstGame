@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    private int currentLevel;
+    [SerializeField] private int currentLevel;
     public LevelManager(int currentLevel)
     {
         this.currentLevel = currentLevel;
@@ -19,11 +19,11 @@ public class LevelManager : MonoBehaviour
     }
     public bool checkWinCondition()
     {
-        return ;
+        return false;
     }
         public bool checkLoseCondition()
     {
-        return ;
+        return false;
     }
 
 }

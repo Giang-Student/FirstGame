@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthItem : Item
 {
-    private int healAmount;
+    [SerializeField] private int healAmount;
     public HealthItem(string itemName, int healAmount) : base(itemName)
     {
         this.healAmount = healAmount;
@@ -19,6 +19,6 @@ public class HealthItem : Item
     }
     public override void use(Player player)
     {
-        
+        player.TakeDamage(- getHealAmount());
     }
 }

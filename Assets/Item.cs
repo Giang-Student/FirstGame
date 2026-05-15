@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    private string itemName;
+    [SerializeField] protected string itemName;
     public Item(string itemName)
     {
         this.itemName = itemName;

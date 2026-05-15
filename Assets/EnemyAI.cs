@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks.Dataflow;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    private float detactionRange;
-    private float attackRange;
+    [SerializeField] private float detactionRange;
+    [SerializeField] private float attackRange;
+    private TransformBlock player;
     public EnemyAI(float detactionRange, float attackRange)
     {
         this.detactionRange = detactionRange;
@@ -29,16 +31,39 @@ public class EnemyAI : MonoBehaviour
     }
     public void detectPlayer()
     {
-        
+        if (player == null)
+            return;
+
+        float distance = Vector2.Distance(transform.position, player.position);
+
+        if (distance <= detectionRange)
+        {
+            ChasePlayer();
+        }
     }
     public void chasePlayer()
     {
-        
+        if (player == null)
+            return;
+
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            player.position,
+            Time.deltaTime
+        );
     }
     public void decideAction()
     {
-        
+        DetectPlayer();
     }
-    // Start is called before the first frame update
+    private void Start()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
+    }
 
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DamageBoostItem : Item
 {
-    private int bonusDamage;
-    private float duration;
+    [SerializeField] private int bonusDamage;
+    [SerializeField] private float duration;
     public DamageBoostItem(string itemName, int bonusDamage, float duration) : base(itemName)
     {
         this.bonusDamage = bonusDamage;
@@ -29,6 +29,10 @@ public class DamageBoostItem : Item
     }
     public override void use(Player player)
     {
-        
+        PlayerCombat combat = player.GetComponent<PlayerCombat>();
+        if(combat != null)
+        {
+            combat.AddBonusDamage(getBonusDamage(), getDuration());   
+        }
     }
 }

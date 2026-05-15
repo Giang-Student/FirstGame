@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private Transform spawnPoint;
-    private float spawnRate;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private float spawnRate;
+    [SerializeField] private NormalEnemy normalEnemyPrefab;
+    [SerializeField] private WiseEnemy wiseEnemyPrefab;
     public EnemySpawner(Transform spawnPoint, float spawnRate)
     {
         this.spawnPoint = spawnPoint;
@@ -29,21 +31,11 @@ public class EnemySpawner : MonoBehaviour
     }
     public void spawnNormalEnemy()
     {
-        
+        Instantiate(normalEnemyPrefab, spawnPoint.position, Quaternion.identity);
     }
     public void spawnWiseEnemy()
     {
-        
+        Instantiate(wiseEnemyPrefab, spawnPoint.position, Quaternion.identity);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

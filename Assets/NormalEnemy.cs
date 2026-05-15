@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NormalEnemy : Enemy
 {
-    private float patroDistance; //khoảng cách tuần tra
+    [SerializeField] private float patroDistance; //khoảng cách tuần tra
     public NormalEnemy(int health, float moveSpeed, bool isDead
      , int damage,
      float patroDistance) 
@@ -22,6 +22,10 @@ public class NormalEnemy : Enemy
     }
     public void patrol ()
     {
-        
+        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+    }
+    private void Update()
+    {
+        Patrol();
     }
 }

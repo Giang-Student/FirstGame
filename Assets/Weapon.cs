@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    private string weaponName;
-    private int damage;
-    private float fireRate;
-    private int ammo;
-    private Bullet bullet;
+    [SerializeField] protected string weaponName;
+    [SerializeField] protected int damage;
+    [SerializeField] protected float fireRate;
     public Weapon (string weaponName, int damage,
-     float fireRate, int ammo, Bullet bullet)
+     float fireRate)
     {
         this.weaponName = weaponName;
         this.damage = damage;
         this.fireRate = fireRate;
-        this.ammo = ammo;
-        this.bullet = bullet;
     }
     public void setWeaponName(string weaponName)
     {
@@ -30,14 +26,6 @@ public class Weapon : MonoBehaviour
     {
         this.fireRate = fireRate;
     }
-    public void setAmmo(int ammo)
-    {
-        this.ammo = ammo;
-    }
-    public void setBulletPrefab(Bullet bullet)
-    {
-        this.bullet = bullet;
-    }
     public string getWeaponName()
     {
         return weaponName;
@@ -50,31 +38,5 @@ public class Weapon : MonoBehaviour
     {
         return fireRate;
     }
-    public int getAmmo()
-    {
-        return ammo;
-    }
-    public Bullet getBulletPrefab()
-    {
-        return bullet;
-    }
-    public void shoot()
-    {
-        
-    }
-    public void reload()
-    {
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void attack();
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FireRateItem : Item
 {
-    private float bonusFireRate;
-    private float duration;
+    [SerializeField] private float bonusFireRate;
+    [SerializeField] private float duration;
     public FireRateItem(string itemName, float bonusFireRate, float duration) : base(itemName)
     {
         this.bonusFireRate = bonusFireRate;
@@ -29,7 +29,11 @@ public class FireRateItem : Item
     }
     public override void use(Player player)
     {
-        
+        PlayerCombat combat = player.GetComponent<PlayerCombat>();
+        if(combat != null)
+        {
+            combat.AddFireRateBoost(getBonusFireRate(), getDuration());
+        }
     }
     
 }

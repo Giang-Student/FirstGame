@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private Slider healthBar;
-    private Text scoreText;
-    private GameObject gameOverScreen;
-    private GameObject winScreen;
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private Player player;
+    [SerializeField] private GameStateManager gameStateManager;
     public UIManager(Slider healthBar, Text scoreText, GameObject gameOverScreen, GameObject winScreen)
     {
         this.healthBar = healthBar;
         this.scoreText = scoreText;
         this.gameOverScreen = gameOverScreen;
         this.winScreen = winScreen;
+        scoreManager = new ScoreManager();
+        player = new Player();
+        gameStateManager = new GameStateManager();
     }
     public void setHealthBar(Slider healthBar)
     {
@@ -48,31 +55,22 @@ public class UIManager : MonoBehaviour
     {
         return winScreen;
     }
-    public void updateHealth()
+    public void updateHealth(int currentHealth)
     {
-        
+        healthBar.value = currentHealth;
     }
     public void updateScore()
     {
-        
+        scoreText.text = scoreManager.GetScore().ToString();
     }
     public void showGameOver()
     {
-        
+        getGameOverScreen().SetActive(true);
     }
     public void showWinScreen()
     {
-        
+        getWinScreen().SetActive(true);
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

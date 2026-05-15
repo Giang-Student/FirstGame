@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    private int health;
-    private float moveSpeed;
+    [SerializeField] private int health;
+    [SerializeField] private float moveSpeed;
     private bool isDead;
     public Character (int health, float moveSpeed, bool isDead)
     {
@@ -37,12 +37,20 @@ public abstract class Character : MonoBehaviour
     {
         return isDead;
     }
-    public void takeDamage(int damage)
+    public virtual void takeDamage(int damage)
     {
-        
+        if (isDead)
+        {
+            return;
+        }
+        health -= damage;
+        if(health <= 0)
+        {
+            die();
+        }
     }
     public void die()
     {
-        
+        isDead = true;
     }
 }

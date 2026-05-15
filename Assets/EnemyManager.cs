@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private List<Enemy> enemyList;
+    private List<Enemy> enemyList = new List<Enemy>();
+    private EnemySpawner enemySpawner;
     public EnemyManager(List<Enemy> enemyList)
     {
         this.enemyList = enemyList;
+        enemySpawner = new EnemySpawner();
     }
     public List<Enemy> GetEnemyList()
     {
@@ -18,12 +20,15 @@ public class EnemyManager : MonoBehaviour
     {
         this.enemyList = enemyList;
     }
-    public void spawnNormalEnemy()
+    public void spawnEnemy(Enemy enemy)
     {
-        
+        enemyList.Add(enemy);
     }
-    public void spawnWiseEnemy()
+    public void removeEnemy(Enemy enemy)
     {
-        
+        if(enemyList.Contains(enemy))
+        {
+            enemyList.Remove(enemy);
+        }
     }
 }

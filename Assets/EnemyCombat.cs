@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
- public EnemyCombat()
+    [SerializeField] private Weapon currentWeapon;
+ public EnemyCombat(Weapon currentWeapon)
     {
-        
+        this.currentWeapon = currentWeapon;
+    }
+    public void setWeapon(Weapon weapon)
+    {
+        currentWeapon = weapon;
     }
     public void attack()
     {
-        
+        if (currentWeapon != null)
+        {
+            currentWeapon.attack();
+        }
     }
 }

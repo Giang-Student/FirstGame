@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager Instance;
     private int score;
+
     public ScoreManager(int score)
     {
         this.score = score;
@@ -19,21 +22,18 @@ public class ScoreManager : MonoBehaviour
     }
     public void addScore(int points)
     {
-
+        score += points;
+        Debug.Log("current Score:"+ GetScore());
     }
     public void resetScore()
     {
-
+        score = 0;
     }
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
 }
