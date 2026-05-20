@@ -41,15 +41,15 @@ public class LongRangeWeapon : Weapon
     }
     public override void attack()
     {
-        if (ammo <= 0)
-            return;
+    //     if (ammo <= 0)
+    //         return;
 
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    //     Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-        ammo--;
+    //     ammo--;
     }
     public void reload(int ammo)
     {
-        this.ammo += ammo;
+        // this.ammo += ammo;
     }
 }

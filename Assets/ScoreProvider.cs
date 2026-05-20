@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface ScoreProvider
 {
-    // Start is called before the first frame update
-    public int getScoreValue();
+    // public int getScoreValue();
 }

@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private List<Enemy> enemyList = new List<Enemy>();
-    private EnemySpawner enemySpawner;
-    public EnemyManager(List<Enemy> enemyList)
-    {
-        this.enemyList = enemyList;
-        enemySpawner = new EnemySpawner();
-    }
-    public List<Enemy> GetEnemyList()
-    {
-        return enemyList;
-    }
-    public void SetEnemyList(List<Enemy> enemyList)
-    {
-        this.enemyList = enemyList;
-    }
-    public void spawnEnemy(Enemy enemy)
-    {
-        enemyList.Add(enemy);
-    }
-    public void removeEnemy(Enemy enemy)
-    {
-        if(enemyList.Contains(enemy))
-        {
-            enemyList.Remove(enemy);
-        }
-    }
+    // private List<Enemy> enemyList = new List<Enemy>();
+    // private EnemySpawner enemySpawner;
+    // public EnemyManager(List<Enemy> enemyList)
+    // {
+    //     this.enemyList = enemyList;
+    //     enemySpawner = new EnemySpawner();
+    // }
+    // public List<Enemy> GetEnemyList()
+    // {
+    //     return enemyList;
+    // }
+    // public void SetEnemyList(List<Enemy> enemyList)
+    // {
+    //     this.enemyList = enemyList;
+    // }
+    // public void spawnEnemy(Enemy enemy)
+    // {
+    //     enemyList.Add(enemy);
+    // }
+    // public void removeEnemy(Enemy enemy)
+    // {
+    //     if(enemyList.Contains(enemy))
+    //     {
+    //         enemyList.Remove(enemy);
+    //     }
+    // }
 }

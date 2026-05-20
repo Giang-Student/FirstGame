@@ -1,13 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using System.Threading.Tasks.Dataflow;
-using JetBrains.Annotations;
 using UnityEngine;
-
 public class Player : Character
 {
-    [SerializeField] private float jumpForce;
+    [SerializeField] float jumpForce;
     private Inventory inventory;
     private PlayerCombat playerCombat;
     public Player(int health, float moveSpeed,
@@ -26,27 +22,29 @@ public class Player : Character
     }
     public void jump()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        // Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        // rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
     public void move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        TransformBlock.Translate(Vector2.right*horizontal*moveSpeed*TimeOnly.deltaTime);
-    }
-    private void Awake()
-    {
-        inventory = GetComponent<Inventory>();
-        playerCombat = GetComponent<PlayerCombat>();
+        float direction = Input.GetAxis("Horizontal");
+        transform.Translate(base.getMoveSpeed()*direction*Time.deltaTime, 0 ,0);
+        // float horizontal = Input.GetAxis("Horizontal");
+        // TransformBlock.Translate(Vector2.right*horizontal*moveSpeed*TimeOnly.deltaTime);
     }
     private void Update()
     {
-        Move();
+        move();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     Jump();
+        // }
     }
+    // private void Awake()
+    // {
+    //     // inventory = GetComponent<Inventory>();
+    //     // playerCombat = GetComponent<PlayerCombat>();
+    // }
 }

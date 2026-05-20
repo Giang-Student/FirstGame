@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected string weaponName;
-    [SerializeField] protected int damage;
-    [SerializeField] protected float fireRate;
+    [SerializeField] private string weaponName;
+    [SerializeField] private int damage;
+    [SerializeField] private float fireRate;
     public Weapon (string weaponName, int damage,
      float fireRate)
     {

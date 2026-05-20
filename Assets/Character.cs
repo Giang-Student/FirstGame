@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public abstract class Character : MonoBehaviour
@@ -51,6 +52,7 @@ public abstract class Character : MonoBehaviour
     }
     public void die()
     {
-        isDead = true;
+        // Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
