@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1852035658805287765}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,10 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799f42f26e084fe47b902d739f95c005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  damage: 0
-  gun: {fileID: 0}
-  flyTime: 10
+  speed: 10
+  rb: {fileID: 7660677010062603383}
 --- !u!50 &7660677010062603383
 Rigidbody2D:
   serializedVersion: 4
@@ -159,7 +157,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.012109221, y: -0.06305136}

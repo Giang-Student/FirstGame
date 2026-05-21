@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy 
-// : Character, ScoreProvider
+public abstract class Enemy : Character
+// , ScoreProvider
 {
 //     [SerializeField] protected int damage;
 //     [SerializeField] protected int scoreValue;
-
-//     protected EnemyAI enemyAI;
-//     protected EnemyMovement enemyMovement;
-//     protected EnemyCombat enemyCombat;
-//     public Enemy(int health, float moveSpeed,
-//      bool isDead, int damage) 
-//      : base(health, moveSpeed, isDead)
-//     {
-//         this.damage = damage;
-//     }
+    // [SerializeField] protected EnemyAI enemyAI;
+    // [SerializeField] protected EnemyMovement enemyMovement;
+    // [SerializeField] protected EnemyCombat enemyCombat;
+    public Enemy(int health, float moveSpeed,
+     bool isDead /*,int damage*/) : base(health, moveSpeed, isDead)
+        {
+            // this.damage = damage;
+        }
 //     protected virtual void Awake()
 //     {
 //         enemyAI = GetComponent<enemyAI>();

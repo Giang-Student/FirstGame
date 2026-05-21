@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WiseEnemy : Enemy
+public class WiseEnemy 
+// : Enemy
 {
     // [SerializeField] private float jumpForce;
     // [SerializeField] private float skillCoolDown;

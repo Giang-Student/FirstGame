@@ -48,8 +48,11 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private Aim aim;
     [SerializeField] private Character character;
+    // [SerializeField] private float maxDistance = 10f; // khoảng cách tối đa mà gun có thể tồn tại
     public Transform FirePoint;
     public GameObject bulletPrefab;
+    // time  to calculate how many bullet fired per second
+    [SerializeField] private float fireRate;
     public Aim getAim()
     {
         return aim;
@@ -78,18 +81,45 @@ public class Gun : MonoBehaviour
             transform.Rotate(180f, 0f, 0f);
         }
     }
+    [SerializeField] private float time=0;
     private void Update()
     {
         aimTarget(getAim());
         positionGun(getCharacter());
         flip();
-        if (Input.GetButton("Fire1"))
+        if(coolDownFire())
         {
             shoot();
         }
+        ;
+        // float distance = Vector3.Distance(FirePoint.position, transform.position);
+
+        // if (distance >= maxDistance)
+        // {
+        //     Destroy(gameObject);
+        // }
+
+    }
+    public bool coolDownFire()
+    {
+
+        time += Time.deltaTime;
+        float nextTimeToFire = 1f / fireRate;
+        if(time >= nextTimeToFire)
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                time = 0;
+                return true;
+            }
+        }
+        return false;
     }
     public void shoot()
     {
-        Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
+        if (Input.GetButton("Fire1"))
+        {
+            Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
+        }
     }
 }
