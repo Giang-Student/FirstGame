@@ -18,15 +18,15 @@ public class Player : Character
     // {
     //     this.jumpForce = jumpForce;
     // }
-    // public float getJumpForce()
-    // {
-    //     return jumpForce;
-    // }
+    public float getJumpForce()
+    {
+        return jumpForce;
+    }
     public void jump()
     {
         if (Input.GetButton("Jump"))
         {
-        rb.velocity = new Vector2(rb.velocity.x,jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x, getJumpForce());
         }
     }
     public void move()
