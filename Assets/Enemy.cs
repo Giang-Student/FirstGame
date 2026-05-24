@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public abstract class Enemy : Character
 // , ScoreProvider
 {
+    [SerializeField] private Transform player;
 //     [SerializeField] protected int damage;
 //     [SerializeField] protected int scoreValue;
     // [SerializeField] protected EnemyAI enemyAI;
@@ -45,4 +45,8 @@ public abstract class Enemy : Character
 
 //         Destroy(gameObject);
 //     }
+    public override Vector3 getAimTarget()
+    {
+        return player.position;
+    }
 }

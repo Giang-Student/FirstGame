@@ -1,29 +1,51 @@
-
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float detactionRange;
-//     [SerializeField] private float attackRange;
+    [SerializeField] private bool isPlayerDetected;
+    [SerializeField] private float attackRange;
+    [SerializeField] private bool isActack;
     [SerializeField] private Transform player;
     [SerializeField] private Vector3 originalPosition;
-    [SerializeField] private bool isPlayerDetected =false;
+
     [SerializeField] private EnemyPatrol patrol;
+    private EnemyMovement enemyMovement;
     private Enemy enemy;
+
+    public EnemyAI(float detactionRange, float atackRange)
+    {
+        this.detactionRange = detactionRange;
+        this.attackRange = atackRange;
+        // Vector3 targetPosition;
+        // enemy = GetComponent<Enemy>();
+        // enemyMovement = new EnemyMovement(enemy.getMoveSpeed(),targetPosition);
+    }
     private void Start()
     {
+        isPlayerDetected =false;
         // originalPosition = transform.position;
+        isActack = false;
         enemy = GetComponent<Enemy>();
+        // enemyMovement = new EnemyMovement(enemy.getMoveSpeed(),targetPosition, transform.position);
     }
      private void Update()
     {
+        playerInAttackRange();
         detectPlayer();
-        if(isPlayerDetected)
+        if (isActack)
         {
-            MoveToPosition(player.position);
+            attack();
         }
+        else if (isPlayerDetected)
+        {
+            chasePlayer();
+        }
+        flip();
         // Vector3 targetPosition = isPlayerDetected ? player.position : null;
         // MoveToPosition(targetPosition);
+        
+
     }
 
     // private void OnTriggerEnter2D(Collider2D other)
@@ -43,22 +65,14 @@ public class EnemyAI : MonoBehaviour
     //         isPlayerDetected = false;
     //     }
     // }
-
-    private void MoveToPosition(Vector3 targetPosition)
-    {
-        // Calculate direction to the target position
-        Vector3 direction = (targetPosition - transform.position).normalized;
-
-        // Move towards the target position
-        float step = enemy.getMoveSpeed() * Time.deltaTime; // Calculate the distance to move
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-    }
-
     private void OnDrawGizmos()
     {
         // Visualize the detection radius in the editor
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, detactionRange);
+        // Visualize the attack radius
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 //     public EnemyAI(float detactionRange, float attackRange)
 //     {
@@ -106,6 +120,10 @@ public class EnemyAI : MonoBehaviour
 //             player = playerObject.transform;
 //         }
 //     }
+    public bool getIsPlayerDetected ()
+    {
+        return isPlayerDetected;
+    }
     public void detectPlayer()
         {
             // if (player == null)
@@ -121,5 +139,39 @@ public class EnemyAI : MonoBehaviour
             {
                 isPlayerDetected = false;
             }
+        }
+        public void chasePlayer()
+        {
+            if(isPlayerDetected)
+            {
+                transform.position = EnemyMovement.walkToPosition(player.position,transform.position, enemy.getMoveSpeed());
+                // Vector3 targetPosition = player.position;
+                // enemyMovement.moveToPosition(targetPosition);
+            }
+        }
+        public void playerInAttackRange()
+        {
+            // if (player == null)
+            //     return;
+
+            float distance = Vector2.Distance(transform.position, player.position);
+
+            if (distance <= attackRange)
+            {
+                isActack = true;
+            }
+            else
+            {
+                isActack = false;
+            }
+        }
+
+        public void flip()
+        {
+            transform.localScale = EnemyMovement.flip(player.position, transform.position);
+        }
+        public void attack()
+        {
+            
         }
 }

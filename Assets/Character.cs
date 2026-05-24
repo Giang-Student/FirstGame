@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
+
 using UnityEngine;
 
 public abstract class Character : MonoBehaviour
@@ -55,4 +53,5 @@ public abstract class Character : MonoBehaviour
         // Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+    public abstract Vector3 getAimTarget();
 }

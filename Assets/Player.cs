@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 public class Player : Character
 {
     [SerializeField] private float jumpForce;
+    [SerializeField] private Aim aim;
     // [SerializeField] private Inventory inventory;
     // [SerializeField] private PlayerCombat playerCombat;
     private Rigidbody2D rb;
@@ -12,7 +12,7 @@ public class Player : Character
      bool isDead, float jumpForce) 
      : base(health, moveSpeed, isDead)
     {
-        // this.jumpForce = jumpForce;
+        this.jumpForce = jumpForce;
     }
     // public void setJumpForce(float jumpForce)
     // {
@@ -46,6 +46,10 @@ public class Player : Character
     {
         move();
         jump();
+    }
+    public override Vector3 getAimTarget()
+    {
+        return aim.getMousePosition();
     }
     // private void Awake()
     // {
