@@ -46,6 +46,7 @@ public class EnemyPatrol : MonoBehaviour
         // {
         //     enemy.setMoveSpeed(0);
         // }
+        flip(currentPoint.position);
 
     }
     
@@ -55,5 +56,9 @@ public class EnemyPatrol : MonoBehaviour
         Gizmos.DrawWireSphere(pointB.position, 0.5f);
         Gizmos.DrawLine(pointA.position,pointB.position);
     }
-    // là cái gì ??
+    public void flip(Vector3 direction)
+    {
+        transform.localScale = EnemyMovement.flip(direction, transform.position);
+    }
+
 }

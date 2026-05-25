@@ -2,49 +2,7 @@
 using UnityEngine;
 
 public class Gun : MonoBehaviour
-//  : LongRangeWeapon
-// {
-// [SerializeField] private Aim aim;
-// [SerializeField] private Character character;
 
-// public Gun(string weaponName, int damage, float fireRate,
-//  Bullet bulletPrefab, Transform firePoint, int ammo) 
-//  : base(weaponName, damage, fireRate, bulletPrefab,firePoint, ammo)
-// {
-// }
-
-
-// public Aim getAim()
-// {
-//     return aim;
-// }
-// public Character getCharacter()
-// {
-//     return character;
-// }
-// public void aimTarget(Aim aim)
-// {
-//     // lấy vị trí mục tiêu rồi dùng tan để tính góc xoay cho gun
-//     Vector3 target = aim.getMousePosition();
-//     Vector3 direction = target - transform.position;
-//     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-//     transform.rotation = Quaternion.Euler(0, 0, angle);
-// }
-// public void positionGun(Character character)
-// {
-//     // đặt vị trí gun theo vị trí của nhân vật
-//     transform.position = character.transform.position;
-// }
-// public void shoot()
-// {
-//     Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-// }
-// private void Update()
-// {
-//     aimTarget(getAim());
-//     positionGun(getCharacter());
-// }
-// }
 {
     [SerializeField] private Aim aim;
     [SerializeField] private Character owner;
@@ -67,7 +25,7 @@ public class Gun : MonoBehaviour
     public void positionGun(Character owner)
     {
         // đặt vị trí gun theo vị trí của nhân vật
-        transform.position = owner.transform.position;
+        transform.position = new Vector3 (owner.transform.position.x, owner.transform.position.y, owner.transform.position.z-1);
     }
     public void flip()
     {
@@ -85,7 +43,7 @@ public class Gun : MonoBehaviour
         float nextTimeToFire = 1f / fireRate;
         if(time >= nextTimeToFire)
         {
-            if (Input.GetButton("Fire1"))
+            if (owner.getFireCondition())
             {
                 time = 0;
                 return true;
@@ -95,7 +53,6 @@ public class Gun : MonoBehaviour
     }
     public void shoot()
     {
-        if (Input.GetButton("Fire1"))
         {
             Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
         }
@@ -107,9 +64,17 @@ public class Gun : MonoBehaviour
         flip();
         if(coolDownFire())
         {
-            shoot();
+            
+            if(owner.getFireCondition())
+            {
+                shoot();
+            }
+        
         }
-        ;
+        if(owner.getIsDead())
+        {
+            Destroy(gameObject);
+        }
         // float distance = Vector3.Distance(FirePoint.position, transform.position);
 
         // if (distance >= maxDistance)
@@ -118,4 +83,5 @@ public class Gun : MonoBehaviour
         // }
 
     }
+    
 }

@@ -5,13 +5,13 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] private int health;
     [SerializeField] private float moveSpeed;
-    private bool isDead;
-    public Character (int health, float moveSpeed, bool isDead)
-    {
-        this.health = health;
-        this.moveSpeed = moveSpeed;
-        this.isDead = isDead;
-    }
+    [SerializeField] private bool isDead;
+    // public Character (int health, float moveSpeed, bool isDead)
+    // {
+    //     this.health = health;
+    //     this.moveSpeed = moveSpeed;
+    //     this.isDead = isDead;
+    // }
     public void setHealth(int health)
     {
         this.health= health;
@@ -51,7 +51,14 @@ public abstract class Character : MonoBehaviour
     public void die()
     {
         // Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (health != 0)
+        {
+            setHealth(0);
+            setIsDead(true);
+            setMoveSpeed(0);
+            
+        }
     }
     public abstract Vector3 getAimTarget();
+    public abstract bool getFireCondition();
 }

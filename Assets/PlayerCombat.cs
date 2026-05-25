@@ -1,58 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    // [SerializeField] private Weapon currentWeapon;
-    // public PlayerCombat(Weapon weapon)
+    // [SerializeField] private Gun playerGun;
+    // public static void fire()
     // {
-    //     currentWeapon = weapon;
-    // }
-    // public void setWeapon(Weapon weapon)
-    // {
-    //     currentWeapon = weapon;
-    // }
-    // public Weapon getWeapon()
-    // {
-    //     return currentWeapon;
-    // }
-    // public void Attack()
-    // {
-    //     if (getWeapon() == null)
+    //     if (Input.GetButton("Fire1"))
     //     {
-    //         Debug.Log("No weapon equipped!");
-    //         return;
-    //     }
-    //     else if(getWeapon() !=null)
-    //     {
-    //         currentWeapon.Attack();
+    //         playerGun.shoot();
     //     }
     // }
-    // public void AddBonusDamage(int amount, float duration)
+    // public override void attack(bool shootingCondition)
     // {
-    //     StartCoroutine(BonusDamageCoroutine(amount, duration));
-    // }
-    // private IEnumerator BounusDamageCoroutine(int amount, float duration)
-    // {
-    //     yield return new WaitForSeconds(duration);
-    // }
-
-    // public void AddFireRateBoost(float amount, float duration)
-    // {
-    //     StartCoroutine(FireRateCoroutine(amount, duration));
-    // }
-
-    // private IEnumerator FireRateCoroutine(float amount, float duration)
-    // {
-    //     yield return new WaitForSeconds(duration);
-    // }
-
-    // private void Update()
-    // {
-    //     if (Input.GetMouseButtonDown(0))
+    //     if (shootingCondition)
     //     {
-    //         Attack();
+    //         gun.shoot();
     //     }
     // }
 }
