@@ -6,6 +6,26 @@ public class BossProjectile : MonoBehaviour
 
     private Vector2 targetPosition;
 
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public void setTargetPosition(Vector2 targetPosition)
+    {
+        this.targetPosition = targetPosition;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public Vector2 getTargetPosition()
+    {
+        return targetPosition;
+    }
+
     public void SetTarget(Vector2 target)
     {
         targetPosition = target;
@@ -21,6 +41,7 @@ public class BossProjectile : MonoBehaviour
             );
 
         // destroy khi tới nơi
+
         if(Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
             Destroy(gameObject);

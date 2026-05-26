@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3311954730032453056
+--- !u!1001 &7339735989770703084
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -82,28 +82,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8514867710303665483, guid: 459550f5f035a5c419b22ce103252b40, type: 3}
       propertyPath: m_Name
-      value: bossBulletPrefab Variant
+      value: bossBulletPrefab
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5875930153972497023, guid: 459550f5f035a5c419b22ce103252b40, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8514867710303665483, guid: 459550f5f035a5c419b22ce103252b40, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -9075676461760039168}
+      addedObject: {fileID: 1306487042659769889}
   m_SourcePrefab: {fileID: 100100000, guid: 459550f5f035a5c419b22ce103252b40, type: 3}
---- !u!1 &6619322052712441995 stripped
+--- !u!1 &1436958270957366695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8514867710303665483, guid: 459550f5f035a5c419b22ce103252b40, type: 3}
-  m_PrefabInstance: {fileID: 3311954730032453056}
+  m_PrefabInstance: {fileID: 7339735989770703084}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-9075676461760039168
+--- !u!114 &1306487042659769889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6619322052712441995}
+  m_GameObject: {fileID: 1436958270957366695}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 515a5aeb2ef08cf409ed7d50721534c1, type: 3}
