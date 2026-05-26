@@ -141,7 +141,7 @@ public class EnemyAI : MonoBehaviour
     {
         transform.position =
             EnemyMovement.walkToPosition(
-                player.position,
+                -player.position,
                 transform.position,
                 enemy.getMoveSpeed()
             );

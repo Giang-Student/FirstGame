@@ -214,6 +214,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: gun
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 276
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1349cbf4f16aadd4ea2e5336b7cbb344
+      internalID: 164157887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -231,6 +252,7 @@ TextureImporter:
       ezgif-frame-003-removebg-preview_3: 273909756
       ezgif-frame-003-removebg-preview_5: 1551640268
       ezgif-frame-003-removebg-preview_7: -957180078
+      gun: 164157887
       ide2: 1388673785
       run2: -435122394
       sleep2: 1961337435
